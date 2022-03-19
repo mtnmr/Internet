@@ -13,7 +13,7 @@ private val retrofit = Retrofit.Builder()
 
 interface MarsApiService{
     @GET("photos")
-    fun getPhoto():String
+    suspend fun getPhoto():String
 }
 
 object MarsApi{
