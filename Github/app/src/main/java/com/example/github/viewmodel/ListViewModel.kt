@@ -47,7 +47,7 @@ class ListViewModel(private val repository: GithubRepository, private val contex
         }
     }
 
-    //
+
     fun onRepoClick(repo : Repo){
         _repo.value = repo
     }

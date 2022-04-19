@@ -7,4 +7,5 @@
     <string name="repository_name">Repository Name</string>
     <string name="github_user_name">mtnmr</string>
     <string name="repo_html_url">https://github.com/mtnmr</string>
+    <string name="null_message">Nothing</string>
 </resources>

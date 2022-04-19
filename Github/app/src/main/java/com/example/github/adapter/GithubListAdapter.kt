@@ -10,7 +10,7 @@ import com.example.github.adapter.GithubListAdapter.*
 import com.example.github.databinding.OneItemBinding
 import com.example.github.model.Repo
 
-class GithubListAdapter: ListAdapter <Repo, ItemViewHolder> (diffcallback) {
+class GithubListAdapter(private val onItemClicked:(Repo) -> Unit): ListAdapter<Repo, ItemViewHolder> (diffcallback) {
 
     class ItemViewHolder(private val binding: OneItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item:Repo){
@@ -20,8 +20,15 @@ class GithubListAdapter: ListAdapter <Repo, ItemViewHolder> (diffcallback) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = OneItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemViewHolder(view)
+//        val view = OneItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+//        return ItemViewHolder(view)
+        val viewHolder = ItemViewHolder(OneItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        viewHolder.itemView.setOnClickListener {
+            val position = viewHolder.bindingAdapterPosition
+            onItemClicked(getItem(position))
+        }
+
+        return viewHolder
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

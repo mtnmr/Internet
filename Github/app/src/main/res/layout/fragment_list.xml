@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         tools:context=".ListFragment">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
             android:id="@+id/list_title"
             android:layout_width="wrap_content"

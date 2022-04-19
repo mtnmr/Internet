@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.github.adapter.GithubListAdapter
 import com.example.github.databinding.FragmentListBinding
@@ -35,7 +36,11 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listAdapter = GithubListAdapter()
+        val listAdapter = GithubListAdapter{
+            viewModel.onRepoClick(it)
+            val action = ListFragmentDirections.actionListFragmentToDetailFragment()
+            view.findNavController().navigate(action)
+        }
 
         binding.repoListRecyclerView.adapter = listAdapter
 
