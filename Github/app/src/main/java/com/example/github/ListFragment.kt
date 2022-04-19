@@ -15,7 +15,7 @@ import java.util.*
 class ListFragment : Fragment() {
 
     private val viewModel : ListViewModel by activityViewModels{
-        ListViewModelFactory((requireActivity().application as MyApplication).repository)
+        ListViewModelFactory((requireActivity().application as MyApplication).repository, requireContext())
     }
 
     override fun onCreateView(

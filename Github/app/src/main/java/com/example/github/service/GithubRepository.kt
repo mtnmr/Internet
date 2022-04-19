@@ -10,4 +10,27 @@ class GithubRepository {
 
     suspend fun getRepo(user:String, repoName:String) : Repo =
         GithubApi.retrofitService.getRepo(user, repoName)
+
+
+//    companion object Factory {
+//        val instance: GithubRepository
+//            @Synchronized get() {
+//                return GithubRepository()
+//            }
+//    }
+
+    companion object{
+        @Volatile
+        private var INSTANCE:GithubRepository ?= null
+
+        fun getRepository():GithubRepository{
+            return INSTANCE ?: synchronized(this){
+                val instance = GithubRepository()
+                INSTANCE = instance
+
+                instance
+            }
+        }
+    }
+
 }

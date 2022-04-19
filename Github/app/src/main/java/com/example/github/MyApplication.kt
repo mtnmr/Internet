@@ -5,5 +5,7 @@ import com.example.github.service.GithubRepository
 
 class MyApplication:Application() {
 
-    val repository: GithubRepository = GithubRepository()
+    val repository: GithubRepository by lazy {
+        GithubRepository.getRepository()
+    }
 }
