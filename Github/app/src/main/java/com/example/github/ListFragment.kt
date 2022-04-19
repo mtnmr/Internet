@@ -30,6 +30,8 @@ class ListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
@@ -44,11 +46,11 @@ class ListFragment : Fragment() {
 
         binding.repoListRecyclerView.adapter = listAdapter
 
-        viewModel.repoList.observe(viewLifecycleOwner){ items ->
-            items.let {
-                listAdapter.submitList(it)
-            }
-        }
+//        viewModel.repoList.observe(viewLifecycleOwner){ items ->
+//            items.let {
+//                listAdapter.submitList(it)
+//            }
+//        }
 
 //        viewModel.repoList.observe(viewLifecycleOwner){
 //            val textView = view.findViewById<TextView>(R.id.repo_list_text)
