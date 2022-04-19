@@ -1,6 +1,7 @@
 package com.example.github.viewmodel
 
 import androidx.lifecycle.*
+import com.example.github.R
 import com.example.github.model.Repo
 import com.example.github.service.GithubRepository
 import kotlinx.coroutines.launch
@@ -12,14 +13,15 @@ class ListViewModel(private val repository: GithubRepository) : ViewModel() {
     private var _repoList = MutableLiveData<List<Repo>>()
     val repoList : LiveData<List<Repo>> = _repoList
 
+    init {
+//        getRepoList(R.string.github_user_name.toString())
+        getRepoList("mtnmr")
+    }
+
     private fun getRepoList(user :String){
         viewModelScope.launch {
             try {
-                val response = repository.getReposList(user)
-                if (response.isSuccessful){
-                    _repoList.value = response.body()
-                }
-
+                _repoList.value = repository.getReposList(user)
             }catch (e:Exception){
                 _repoList.value = listOf()
                 //エラー処理いる？

@@ -12,11 +12,11 @@ import retrofit2.http.Path
 
 interface GithubService {
 
-    @GET("/users/{user}/repos")
-    suspend fun getReposList(@Path("user") user:String) : Response<List<Repo>>
+    @GET("users/{user}/repos")
+    suspend fun getReposList(@Path("user") user:String) : List<Repo>
 
-    @GET("/repos/{user}/{reponame}")
-    suspend fun getRepo(@Path("user") user:String, @Path("reponame") repoName:String): Response<Repo>
+    @GET("repos/{user}/{reponame}")
+    suspend fun getRepo(@Path("user") user:String, @Path("reponame") repoName:String): Repo
 }
 
 private const val BASE_URL = "https://api.github.com/"

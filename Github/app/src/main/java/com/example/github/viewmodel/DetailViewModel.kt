@@ -12,13 +12,12 @@ class DetailViewModel(private val repository: GithubRepository) : ViewModel() {
     private val _repo = MutableLiveData<Repo>()
     val repo:LiveData<Repo> = _repo
 
-    private fun getRepo(user:String, repoName:String){
+
+
+    fun getRepo(user:String, repoName:String){
         viewModelScope.launch {
             try {
-                val response = repository.getRepo(user, repoName)
-                if ( response.isSuccessful){
-                    _repo.value = response.body()
-                }
+                _repo.value = repository.getRepo(user, repoName)
             }catch(e:Exception){
                 //エラーの処理いる？
             }
