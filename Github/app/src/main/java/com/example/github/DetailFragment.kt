@@ -24,30 +24,32 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
-            repoName.text = viewModel.repo.value?.name
-            url.text = viewModel.repo.value?.htmlUrl
-            fullName.text = viewModel.repo.value?.fullName
-            description.text = viewModel.repo.value?.description
-            language.text = viewModel.repo.value?.language
-            defaultBranch.text = viewModel.repo.value?.defaultBranch
-            pushedAt.text = viewModel.repo.value?.pushedAt
-            createdAt.text = viewModel.repo.value?.createdAt
-            updatedAt.text = viewModel.repo.value?.updatedAt
-        }
-
-        if (binding.description.text == ""){
-            binding.description.text = getString(R.string.null_message)
-        }
-
-        if (binding.language.text == ""){
-            binding.language.text = getString(R.string.null_message)
-        }
+//        binding.apply {
+//            repoName.text = viewModel.repo.value?.name
+//            url.text = viewModel.repo.value?.htmlUrl
+//            fullName.text = viewModel.repo.value?.fullName
+//            description.text = viewModel.repo.value?.description
+//            language.text = viewModel.repo.value?.language
+//            defaultBranch.text = viewModel.repo.value?.defaultBranch
+//            pushedAt.text = viewModel.repo.value?.pushedAt
+//            createdAt.text = viewModel.repo.value?.createdAt
+//            updatedAt.text = viewModel.repo.value?.updatedAt
+//        }
+//
+//        if (binding.description.text == ""){
+//            binding.description.text = getString(R.string.null_message)
+//        }
+//
+//        if (binding.language.text == ""){
+//            binding.language.text = getString(R.string.null_message)
+//        }
     }
 }

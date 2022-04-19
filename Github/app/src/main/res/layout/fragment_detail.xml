@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.github.viewmodel.ListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:text="@string/repository_name"
+            android:text="@{viewModel.repo.name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,73 +30,81 @@
             android:id="@+id/url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/html_url(viewModel.repo.htmlUrl)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/repoName" />
+            app:layout_constraintTop_toBottomOf="@+id/repoName"
+            tools:text="@string/html_url"/>
 
         <TextView
             android:id="@+id/fullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/full_name(viewModel.repo.fullName)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/url" />
+            app:layout_constraintTop_toBottomOf="@+id/url"
+            tools:text="@string/full_name"/>
 
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/description(viewModel.repo.description)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullName" />
+            app:layout_constraintTop_toBottomOf="@+id/fullName"
+            tools:text="@string/description"/>
 
         <TextView
             android:id="@+id/language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/language(viewModel.repo.language)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            tools:text="@string/language"/>
 
         <TextView
             android:id="@+id/defaultBranch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/default_branch(viewModel.repo.defaultBranch)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language" />
+            app:layout_constraintTop_toBottomOf="@+id/language"
+            tools:text="@string/default_branch"/>
 
         <TextView
             android:id="@+id/pushedAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/pushed_at(viewModel.repo.pushedAt)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/defaultBranch" />
+            app:layout_constraintTop_toBottomOf="@+id/defaultBranch"
+            tools:text="@string/pushed_at"/>
 
         <TextView
             android:id="@+id/createdAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/created_at(viewModel.repo.createdAt)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pushedAt" />
+            app:layout_constraintTop_toBottomOf="@+id/pushedAt"
+            tools:text="@string/created_at"/>
 
         <TextView
             android:id="@+id/updatedAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{@string/updated_at(viewModel.repo.updatedAt)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createdAt" />
+            app:layout_constraintTop_toBottomOf="@+id/createdAt"
+            tools:text="@string/updated_at"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
