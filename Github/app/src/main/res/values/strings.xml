@@ -17,4 +17,7 @@
     <string name="pushed_at">Pushed At: %1$s</string>
     <string name="created_at">Created At: %1$s</string>
     <string name="updated_at">Updated At: %1$s</string>
+
+    <string name="loading_message">LOADING</string>
+    <string name="error_message">ERROR</string>
 </resources>

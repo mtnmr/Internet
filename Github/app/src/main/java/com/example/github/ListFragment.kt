@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.github.adapter.GithubListAdapter
 import com.example.github.databinding.FragmentListBinding
@@ -46,6 +47,9 @@ class ListFragment : Fragment() {
 
         binding.repoListRecyclerView.adapter = listAdapter
 
+        binding.repoListRecyclerView.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        )
 //        viewModel.repoList.observe(viewLifecycleOwner){ items ->
 //            items.let {
 //                listAdapter.submitList(it)
